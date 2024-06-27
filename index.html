@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSSDT-2024 Bistu开源项目演示第18组 - 注册页面</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!--注册界面-->
+        <h1>注册页面</h1>
+        <!--表单，逻辑为提交后跳转至第二个界面:loading-->
+        <form action="loading.html">
+            <!--表单元素:用户名，其中在input中添加required，提醒用户此项必填-->
+            <label for="username">用户名:</label>
+            <input type="text" id="username" name="username" required>
+            <!--表单元素:邮箱，其中在input中添加required，提醒用户此项必填-->
+            <label for="email">邮箱:</label>
+            <input type="email" id="email" name="email" required>
+            <!--表单元素:密码，其中在input中添加required，提醒用户此项必填-->
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password" required>
+            <!--表单提交,提交则跳转-->
+            <button type="submit">注册</button>
+            <p>Bistu-OSSDT 2024开源项目演示第18组</p>
+            <p>小组成员:马永超，林立天,李烨,其米次仁，张锐</p>
+        </form>
+    </div>
+    <!--javascript代码，用于表单提交验证-->
+    <script>
+        function validateForm() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // 简单的邮箱格式验证
+            if (!validateEmail(email)) {
+                alert('请输入有效的邮箱地址');
+                return false;
+            }
+
+            // 密码长度验证
+            if (password.length < 6) {
+                alert('密码长度不能少于6个字符');
+                return false;
+            }
+
+            return true;
+        }
+        // 邮箱格式验证
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+    </script>
+</body>
+
+</html>
